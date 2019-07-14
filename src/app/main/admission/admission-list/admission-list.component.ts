@@ -12,4 +12,14 @@ export class AdmissionListComponent implements OnInit {
   ngOnInit() {
   }
 
+  onPaste(ev) {
+    // console.log(ev);
+    var items = ev.split("\n"); 
+    // console.log(items);
+    items.forEach(itm => {
+      var fields = itm.split("\t");
+      console.log(fields);
+    });
+  }
+
 }
