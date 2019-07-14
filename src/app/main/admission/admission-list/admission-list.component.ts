@@ -12,11 +12,11 @@ export class AdmissionListComponent implements OnInit {
   ngOnInit() {
   }
 
-  onPaste(ev) {
-    // console.log(ev);
-    var items = ev.split("\n"); 
-    // console.log(items);
+  onPaste(paintText) {
+    // แยกแต่ละบรรทัด (\n)
+    var items = paintText.split("\n");
     items.forEach(itm => {
+      // แยกแต่ละ field ด้วย Tab (\t)
       var fields = itm.split("\t");
       console.log(fields);
     });
