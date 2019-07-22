@@ -19,13 +19,13 @@
     <span>1</span>
     <span>2</span>
   </div> -->
-  <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="gappx" *ngFor="let item of list">
+  <!-- <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="gappx" *ngFor="let item of list">
     <div class="p-2">{{item.seq}}</div>
     <div>{{item.stdno}}</div>
     <div>{{item.fullname}}</div>
     <div></div>
     <div></div>
-  </div>
+  </div> -->
 
   <mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="stdno">
@@ -33,11 +33,11 @@
       <mat-cell #td *matCellDef="let element"> {{element.stdno}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="fullname">
-      <mat-header-cell #th *matHeaderCellDef> รหัสนักเรียน </mat-header-cell>
+      <mat-header-cell #th *matHeaderCellDef> ชื่อ-สกุล </mat-header-cell>
       <mat-cell #td *matCellDef="let element"> {{element.fullname}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="nickname">
-      <mat-header-cell #th *matHeaderCellDef> รหัสนักเรียน </mat-header-cell>
+      <mat-header-cell #th *matHeaderCellDef> ชื่อเล่น </mat-header-cell>
       <mat-cell #td *matCellDef="let element" > {{element.nickname}} </mat-cell>
     </ng-container>
     <mat-header-row #tr *matHeaderRowDef="displayedColumns"></mat-header-row>
