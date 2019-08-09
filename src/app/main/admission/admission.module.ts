@@ -15,11 +15,13 @@ import { MatTableModule } from '@angular/material';
 
 
 import { MatRowKeyboardSelectionModule } from 'mat-row-keyboard-selection';
+import { AuthenGuardService } from 'app/authentication/authen-guard.service';
 
 const routes = [
   {
     path     : '',
-    component: AdmissionListComponent
+    component: AdmissionListComponent,
+    canActivate: [AuthenGuardService]
   }
 ];
 

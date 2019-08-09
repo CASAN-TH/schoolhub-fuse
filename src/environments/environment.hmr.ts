@@ -1,4 +1,6 @@
 export const environment = {
     production: false,
-    hmr       : true
+    hmr       : true,
+    appName : 'schoolhub-prod',
+    apiUrl : 'http://'
 };

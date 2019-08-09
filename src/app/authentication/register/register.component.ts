@@ -5,6 +5,8 @@ import { takeUntil } from 'rxjs/operators';
 
 import { FuseConfigService } from '@fuse/services/config.service';
 import { fuseAnimations } from '@fuse/animations';
+import { AuthenService } from '../authen.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector     : 'register',
@@ -16,13 +18,22 @@ import { fuseAnimations } from '@fuse/animations';
 export class RegisterComponent implements OnInit, OnDestroy
 {
     registerForm: FormGroup;
+    user = {
+        firstname: '',
+        lastname: '-',
+        email: '',
+        username: '',
+        password: '',
+    };
 
     // Private
     private _unsubscribeAll: Subject<any>;
 
     constructor(
         private _fuseConfigService: FuseConfigService,
-        private _formBuilder: FormBuilder
+        private _formBuilder: FormBuilder,
+        private router: Router,
+        private auth: AuthenService
     )
     {
         // Configure the layout
@@ -80,6 +91,21 @@ export class RegisterComponent implements OnInit, OnDestroy
         // Unsubscribe from all subscriptions
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();
+    }
+
+    /**
+     * On register button click
+     */
+    register(): void{
+        this.user.username = this.user.email;
+        this.auth.register(this.user);
+        this.auth.isLoggedIn.subscribe((res: any) => {
+            if (res.status === 200){
+                this.router.navigate(['']);
+            }else{
+                // error
+            }
+        });
     }
 }
 
