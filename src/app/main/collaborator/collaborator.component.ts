@@ -17,6 +17,7 @@ export class CollaboratorComponent implements OnInit {
   collaborator = {
     email: ""
   }
+  
   ref1: any;
   constructor(
     private sch: SchooldialogService,
@@ -30,6 +31,7 @@ export class CollaboratorComponent implements OnInit {
     console.log(this.ref1);
     this.collaboratorForm = this._formBuilder.group({
       email: ['', [Validators.required, Validators.email]]
+      
     });
 
     this.getList();

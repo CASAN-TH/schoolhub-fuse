@@ -26,7 +26,7 @@ export const navigation: FuseNavigation[] = [
                 title: 'Collaborator',
                 translate: 'NAV.SAMPLE.TITLE',
                 type: 'item',
-                icon: 'email',
+                icon: 'person_add',
                 url: '/collaborator',
                 badge: {
                     title: '25',

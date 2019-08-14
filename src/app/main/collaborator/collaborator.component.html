@@ -1,11 +1,11 @@
-<div *ngFor="let collaborator of collaborators">
+<div *ngFor="let collaborator of collaborators" class="addcollab">
   {{collaborator.email}}-{{collaborator.schoolid}}
-  <button>link</button> 
-  <button (click)="onDelete(collaborator._id)">delete</button>
+  <div><button>link</button>
+  <button (click)="onDelete(collaborator._id)">cancel</button></div>
 </div>
 
-<div class=".example-card">
-  <mat-card >
+<div class="example-card">
+  <mat-card  >
     <form name="collaboratorForm" [formGroup]="collaboratorForm" novalidate>
       <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
@@ -19,11 +19,11 @@
           Please enter a valid email address
         </mat-error>
       </mat-form-field>
+      <div><button mat-raised-button color="accent" class="submit-button" aria-label="LOGIN"
+          [disabled]="collaboratorForm.invalid" (click)="onAddCollaborator()">
+          add collaborator
+        </button></div>
 
-      <button mat-raised-button color="accent" class="submit-button" aria-label="LOGIN"
-        [disabled]="collaboratorForm.invalid" (click)="onAddCollaborator()">
-        add collaborator
-      </button>
 
     </form>
   </mat-card>
