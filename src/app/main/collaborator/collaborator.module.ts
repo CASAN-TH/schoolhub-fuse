@@ -5,6 +5,7 @@ import { AuthenGuardService } from 'app/authentication/authen-guard.service';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatIconModule, MatInputModule } from '@angular/material';
 import { FuseSharedModule } from '@fuse/shared.module';
+import {MatCardModule} from '@angular/material/card';
 
 
 const routes = [
@@ -24,6 +25,7 @@ const routes = [
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    MatCardModule,
 
     FuseSharedModule
   ]
