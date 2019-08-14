@@ -5,6 +5,8 @@ import { MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatIconModule, 
 import { FuseSharedModule } from '@fuse/shared.module';
 
 import { RegisterComponent } from 'app/authentication/register/register.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { SchoolComponent } from 'app/main/school/school.component';
 
 const routes = [
     {
@@ -15,9 +17,11 @@ const routes = [
 
 @NgModule({
     declarations: [
-        RegisterComponent
+        RegisterComponent,
+        SchoolComponent
     ],
     imports     : [
+        MatDialogModule,
         RouterModule.forChild(routes),
 
         MatButtonModule,
@@ -27,7 +31,8 @@ const routes = [
         MatInputModule,
 
         FuseSharedModule
-    ]
+    ],
+    entryComponents:[SchoolComponent]
 })
 export class RegisterModule
 {

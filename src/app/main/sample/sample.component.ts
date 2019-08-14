@@ -32,7 +32,6 @@ export class SampleComponent {
         console.log(files);
     }
 
-    detectFiles(ev): void {
-        
+    detectFiles(ev): void {  
     }
 }

@@ -7,6 +7,8 @@ import { FuseConfigService } from '@fuse/services/config.service';
 import { fuseAnimations } from '@fuse/animations';
 import { AuthenService } from '../authen.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
+import { SchoolComponent } from 'app/main/school/school.component';
 
 @Component({
     selector     : 'register',
@@ -30,6 +32,7 @@ export class RegisterComponent implements OnInit, OnDestroy
     private _unsubscribeAll: Subject<any>;
 
     constructor(
+        public dialog: MatDialog,
         private _fuseConfigService: FuseConfigService,
         private _formBuilder: FormBuilder,
         private router: Router,
@@ -101,12 +104,24 @@ export class RegisterComponent implements OnInit, OnDestroy
         this.auth.register(this.user);
         this.auth.isLoggedIn.subscribe((res: any) => {
             if (res.status === 200){
-                this.router.navigate(['']);
+                this.openDialog();
+                // this.router.navigate(['']);
             }else{
                 // error
             }
         });
     }
+
+    openDialog(): void {
+        const dialogRef = this.dialog.open(SchoolComponent, {
+          width: "1000px"
+        });
+    
+        dialogRef.afterClosed().subscribe(result => {
+          console.log("openDialog");
+        });
+      }
+
 }
 
 /**
