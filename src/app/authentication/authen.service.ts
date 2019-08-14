@@ -44,6 +44,6 @@ export class AuthenService {
     window.localStorage.removeItem(`token@${environment.appName}`);
     this.token = window.localStorage.getItem(`token@${environment.appName}`);
     this.user = this.token ? this.jwt.decodeToken(this.token) : null;
-    this.isLoggedIn.emit(this.user);
+    // this.isLoggedIn.emit(this.user);
   }
 }

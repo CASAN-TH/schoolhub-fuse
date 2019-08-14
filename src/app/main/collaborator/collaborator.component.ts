@@ -2,6 +2,8 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { Component, OnInit } from '@angular/core';
 import { CollaboratorService } from './collaborator.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { SchooldialogService } from '../schooldialog/schooldialog.service';
 
 
 @Component({
@@ -15,12 +17,17 @@ export class CollaboratorComponent implements OnInit {
   collaborator = {
     email: ""
   }
-  constructor(private collab: CollaboratorService,
+  ref1: any;
+  constructor(
+    private sch: SchooldialogService,
+    private route: ActivatedRoute,
+    private collab: CollaboratorService,
     private _formBuilder: FormBuilder, ) { }
 
   ngOnInit() {
-
-
+    let _id = this.route.snapshot.paramMap.get('schoolId');
+    this.ref1 = JSON.parse(_id);
+    console.log(this.ref1);
     this.collaboratorForm = this._formBuilder.group({
       email: ['', [Validators.required, Validators.email]]
     });

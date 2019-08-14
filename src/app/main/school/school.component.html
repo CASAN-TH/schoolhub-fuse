@@ -1,0 +1,112 @@
+<form name="schoolForm" [formGroup]="schoolForm" novalidate>
+  <div>
+    <h1>กรุณากรอกข้อมูลของโรงเรียน</h1>
+  </div>
+
+  <mat-form-field appearance="outline">
+    <mat-label>ชื่อโรงเรียน</mat-label>
+    <input matInput formControlName="schoolname" [(ngModel)]="school.schoolname">
+    <!-- <mat-icon matSuffix class="secondary-text">account_circle</mat-icon> -->
+    <mat-error>
+      กรุณากรอกชื่อ "โรงเรียน"
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>สังกัด</mat-label>
+    <input matInput formControlName="under" [(ngModel)]="school.under">
+    <!-- <mat-icon matSuffix class="secondary-text">account_circle</mat-icon> -->
+    <mat-error>
+        กรุณากรอก "สังกัด"
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>เขตพื้นที่</mat-label>
+    <input matInput formControlName="area" [(ngModel)]="school.area">
+    <!-- <mat-icon matSuffix class="secondary-text">account_circle</mat-icon> -->
+    <mat-error>
+        กรุณากรอก "เขตพื้นที่"
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>ตำบล</mat-label>
+    <input matInput formControlName="subdistric" [(ngModel)]="school.subdistric">
+    <!-- <mat-icon matSuffix class="secondary-text">account_circle</mat-icon> -->
+    <mat-error>
+        กรุณากรอก "ตำบล"
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>อำเภอ</mat-label>
+    <input matInput formControlName="distric" [(ngModel)]="school.distric">
+    <!-- <mat-icon matSuffix class="secondary-text">account_circle</mat-icon> -->
+    <mat-error>
+        กรุณากรอก "อำเภอ"
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>จังหวัด</mat-label>
+    <input matInput formControlName="province" [(ngModel)]="school.province">
+    <!-- <mat-icon matSuffix class="secondary-text">account_circle</mat-icon> -->
+    <mat-error>
+        กรุณากรอก "จังหวัด"
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>นายทะเบียน</mat-label>
+    <input matInput formControlName="registrar" [(ngModel)]="school.registrar">
+    <!-- <mat-icon matSuffix class="secondary-text">account_circle</mat-icon> -->
+    <mat-error>
+        กรุณากรอก "นายทะเบียน"
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>ตำแหน่ง</mat-label>
+    <input matInput formControlName="position" [(ngModel)]="school.position">
+    <!-- <mat-icon matSuffix class="secondary-text">account_circle</mat-icon> -->
+    <mat-error>
+        กรุณากรอก "ตำแหน่ง"
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>ผู้อำนวยการ</mat-label>
+    <input matInput formControlName="direction" [(ngModel)]="school.direction">
+    <!-- <mat-icon matSuffix class="secondary-text">account_circle</mat-icon> -->
+    <mat-error>
+        กรุณากรอก "ผู้อำนวยการ"
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>ตำแหน่ง</mat-label>
+    <input matInput formControlName="positions" [(ngModel)]="school.positions">
+    <!-- <mat-icon matSuffix class="secondary-text">account_circle</mat-icon> -->
+    <mat-error>
+        กรุณากรอก "ตำแหน่ง"
+    </mat-error>
+  </mat-form-field>
+
+  <div class="row">
+    <div class="col-12">
+        <button mat-raised-button color="accent" class="submit-button" aria-label="CREATE AN ACCOUNT"
+        [disabled]="schoolForm.invalid" (click)="onSaveSchool()">
+        เพิ่มข้อมูลโรงเรียน
+      </button>
+    </div>
+  </div>
+
+  <!-- <div class="submit-button1">
+    <button mat-raised-button color="accent" class="submit-button" aria-label="CREATE AN ACCOUNT"
+      [disabled]="schoolForm.invalid" (click)="onSaveSchool()">
+      เพิ่มข้อมูลโรงเรียน
+    </button>
+  </div> -->
+
+</form>
