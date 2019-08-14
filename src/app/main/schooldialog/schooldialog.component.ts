@@ -15,14 +15,14 @@ export class SchooldialogComponent implements OnInit {
   ngOnInit() {
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(SchoolComponent, {
-      width: "1000px"
-    });
+  // openDialog(): void {
+  //   const dialogRef = this.dialog.open(SchoolComponent, {
+  //     width: "1000px"
+  //   });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log("openDialog");
-    });
-  }
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log("openDialog");
+  //   });
+  // }
 
 }
