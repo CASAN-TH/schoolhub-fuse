@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SchooldialogService } from '../schooldialog/schooldialog.service';
 import { MatDialogRef } from '@angular/material';
+import { SchoolService } from './school.service';
+
 
 @Component({
   selector: 'app-school',
@@ -26,7 +27,7 @@ export class SchoolComponent implements OnInit {
   };
 
   constructor(public dialogRef: MatDialogRef<SchoolComponent>,
-    private sch: SchooldialogService, 
+    private sch: SchoolService, 
     private _formBuilder: FormBuilder,
     private router: Router) { }
 

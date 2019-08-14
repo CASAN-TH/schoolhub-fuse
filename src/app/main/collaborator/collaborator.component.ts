@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { CollaboratorService } from './collaborator.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { SchooldialogService } from '../schooldialog/schooldialog.service';
+import { SchoolService } from '../school/school.service';
+
 
 @Component({
   selector: 'app-collaborator',
@@ -18,7 +19,7 @@ export class CollaboratorComponent implements OnInit {
   }
   ref1: any;
   constructor(
-    private sch: SchooldialogService,
+    private sch: SchoolService,
     private route: ActivatedRoute,
     private collab: CollaboratorService,
     private _formBuilder: FormBuilder, ) { }

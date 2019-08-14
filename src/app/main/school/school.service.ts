@@ -5,7 +5,8 @@ import { environment } from 'environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class SchooldialogService {
+export class SchoolService {
+
   @Output() savedschool: EventEmitter<any> = new EventEmitter();
 
   constructor(private http: HttpClient) { }
@@ -24,5 +25,4 @@ export class SchooldialogService {
       this.savedschool.emit(err);
     })
   }
-
 }
