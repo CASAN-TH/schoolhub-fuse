@@ -19,7 +19,7 @@ export class SchoolService {
 
 
   saveSchool(data: any) {
-    this.http.post("http://18.139.255.19:3002/api/schools", data, { headers: this.authorizationHeader() }).subscribe((res: any) => {
+    this.http.post(environment.apiUrl + "/api/schools", data, { headers: this.authorizationHeader() }).subscribe((res: any) => {
       this.savedschool.emit(res);
     }, (err) => {
       this.savedschool.emit(err);

@@ -6,7 +6,7 @@ export const environment = {
     production: false,
     hmr       : false,
     appName : 'schoolhub-dev',
-    apiUrl : 'http://18.139.255.19:3001'
+    apiUrl : 'https://api.schoolhubb.com'
 };
 
 /*
