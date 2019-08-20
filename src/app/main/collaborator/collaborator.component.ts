@@ -19,7 +19,7 @@ export class CollaboratorComponent implements OnInit {
     email: ""
   }
   
-  ref1: any;
+  schoolId: any;
   constructor(
     private sch: SchoolService,
     private route: ActivatedRoute,
@@ -28,8 +28,8 @@ export class CollaboratorComponent implements OnInit {
 
   ngOnInit() {
     let _id = this.route.snapshot.paramMap.get('schoolId');
-    this.ref1 = JSON.parse(_id);
-    console.log(this.ref1);
+    this.schoolId = JSON.parse(_id);
+    console.log(this.schoolId);
     this.collaboratorForm = this._formBuilder.group({
       email: ['', [Validators.required, Validators.email]]
       

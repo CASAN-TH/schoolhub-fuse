@@ -17,7 +17,7 @@
     <input matInput formControlName="under" [(ngModel)]="school.under">
     <!-- <mat-icon matSuffix class="secondary-text">account_circle</mat-icon> -->
     <mat-error>
-        กรุณากรอก "สังกัด"
+      กรุณากรอก "สังกัด"
     </mat-error>
   </mat-form-field>
 
@@ -26,7 +26,7 @@
     <input matInput formControlName="area" [(ngModel)]="school.area">
     <!-- <mat-icon matSuffix class="secondary-text">account_circle</mat-icon> -->
     <mat-error>
-        กรุณากรอก "เขตพื้นที่"
+      กรุณากรอก "เขตพื้นที่"
     </mat-error>
   </mat-form-field>
 
@@ -35,7 +35,7 @@
     <input matInput formControlName="subdistric" [(ngModel)]="school.subdistric">
     <!-- <mat-icon matSuffix class="secondary-text">account_circle</mat-icon> -->
     <mat-error>
-        กรุณากรอก "ตำบล"
+      กรุณากรอก "ตำบล"
     </mat-error>
   </mat-form-field>
 
@@ -44,7 +44,7 @@
     <input matInput formControlName="distric" [(ngModel)]="school.distric">
     <!-- <mat-icon matSuffix class="secondary-text">account_circle</mat-icon> -->
     <mat-error>
-        กรุณากรอก "อำเภอ"
+      กรุณากรอก "อำเภอ"
     </mat-error>
   </mat-form-field>
 
@@ -53,7 +53,7 @@
     <input matInput formControlName="province" [(ngModel)]="school.province">
     <!-- <mat-icon matSuffix class="secondary-text">account_circle</mat-icon> -->
     <mat-error>
-        กรุณากรอก "จังหวัด"
+      กรุณากรอก "จังหวัด"
     </mat-error>
   </mat-form-field>
 
@@ -62,7 +62,7 @@
     <input matInput formControlName="registrar" [(ngModel)]="school.registrar">
     <!-- <mat-icon matSuffix class="secondary-text">account_circle</mat-icon> -->
     <mat-error>
-        กรุณากรอก "นายทะเบียน"
+      กรุณากรอก "นายทะเบียน"
     </mat-error>
   </mat-form-field>
 
@@ -71,7 +71,7 @@
     <input matInput formControlName="position" [(ngModel)]="school.position">
     <!-- <mat-icon matSuffix class="secondary-text">account_circle</mat-icon> -->
     <mat-error>
-        กรุณากรอก "ตำแหน่ง"
+      กรุณากรอก "ตำแหน่ง"
     </mat-error>
   </mat-form-field>
 
@@ -80,7 +80,7 @@
     <input matInput formControlName="direction" [(ngModel)]="school.direction">
     <!-- <mat-icon matSuffix class="secondary-text">account_circle</mat-icon> -->
     <mat-error>
-        กรุณากรอก "ผู้อำนวยการ"
+      กรุณากรอก "ผู้อำนวยการ"
     </mat-error>
   </mat-form-field>
 
@@ -89,24 +89,15 @@
     <input matInput formControlName="positions" [(ngModel)]="school.positions">
     <!-- <mat-icon matSuffix class="secondary-text">account_circle</mat-icon> -->
     <mat-error>
-        กรุณากรอก "ตำแหน่ง"
+      กรุณากรอก "ตำแหน่ง"
     </mat-error>
   </mat-form-field>
 
-  <div class="row">
-    <div class="col-12">
-        <button mat-raised-button color="accent" class="submit-button" aria-label="CREATE AN ACCOUNT"
-        [disabled]="schoolForm.invalid" (click)="onSaveSchool()">
-        เพิ่มข้อมูลโรงเรียน
-      </button>
-    </div>
-  </div>
-
-  <!-- <div class="submit-button1">
+  <div class="col-12">
     <button mat-raised-button color="accent" class="submit-button" aria-label="CREATE AN ACCOUNT"
       [disabled]="schoolForm.invalid" (click)="onSaveSchool()">
       เพิ่มข้อมูลโรงเรียน
     </button>
-  </div> -->
+  </div>
 
 </form>
