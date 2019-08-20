@@ -18,7 +18,7 @@ export class CollaboratorService {
   }
 
   getlist() {
-    this.http.get("http://localhost:3000/api/collaborators", { headers: this.authorizationHeader() }).subscribe((res: any) => {
+    this.http.get(environment.apiUrl + "/api/collaborators", { headers: this.authorizationHeader() }).subscribe((res: any) => {
       console.log(res);
       this.gettinglist.emit(res);
     }, (err) => {
@@ -26,14 +26,14 @@ export class CollaboratorService {
     })
   }m
   create(data: any) {
-    this.http.post("http://localhost:3000/api/collaborators", data, { headers: this.authorizationHeader() }).subscribe((res: any) => {
+    this.http.post(environment.apiUrl + "/api/collaborators", data, { headers: this.authorizationHeader() }).subscribe((res: any) => {
       this.created.emit(res);
     }, (err) => {
       this.created.emit(err);
     })
   }
   delete(_id) {
-    this.http.delete("http://localhost:3000/api/collaborators/" + _id, { headers: this.authorizationHeader() }).subscribe((res: any) => {
+    this.http.delete(environment.apiUrl + "/api/collaborators/" + _id, { headers: this.authorizationHeader() }).subscribe((res: any) => {
      this.deleted.emit(res);
     },(err)=>{
       this.deleted.emit(err);
