@@ -18,22 +18,22 @@ export class CollaboratorService {
   }
 
   getlist() {
-    this.http.get("http://18.139.255.19:3004/api/collaborators", { headers: this.authorizationHeader() }).subscribe((res: any) => {
+    this.http.get("http://localhost:3000/api/collaborators", { headers: this.authorizationHeader() }).subscribe((res: any) => {
       console.log(res);
       this.gettinglist.emit(res);
     }, (err) => {
       this.gettinglist.emit(err);
     })
-  }
+  }m
   create(data: any) {
-    this.http.post("http://18.139.255.19:3004/api/collaborators", data, { headers: this.authorizationHeader() }).subscribe((res: any) => {
+    this.http.post("http://localhost:3000/api/collaborators", data, { headers: this.authorizationHeader() }).subscribe((res: any) => {
       this.created.emit(res);
     }, (err) => {
       this.created.emit(err);
     })
   }
   delete(_id) {
-    this.http.delete("http://18.139.255.19:3004/api/collaborators/" + _id, { headers: this.authorizationHeader() }).subscribe((res: any) => {
+    this.http.delete("http://localhost:3000/api/collaborators/" + _id, { headers: this.authorizationHeader() }).subscribe((res: any) => {
      this.deleted.emit(res);
     },(err)=>{
       this.deleted.emit(err);
