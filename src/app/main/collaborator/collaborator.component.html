@@ -1,4 +1,4 @@
-<div class="example-card2">
+<!-- <div class="example-card2">
   <mat-card>
     <form name="collaboratorForm" [formGroup]="collaboratorForm" novalidate>
       <mat-form-field appearance="outline">
@@ -20,13 +20,13 @@
     </form>
 
 
-    <div> 
+    <div>
       <div *ngFor="let collaborator of collaborators">
         <div class="ng">
           <div class="fontemail">{{collaborator.email}}</div>
           <div>{{collaborator.schoolid}}</div>
         </div>
-        <div class="bt_link" >
+        <div class="bt_link">
           <button mat-raised-button color="accent">link</button>
         </div>
         <div class="bt_cancel">
@@ -37,4 +37,47 @@
 
 
   </mat-card>
+</div> -->
+<div class="page-layout blank p-24" fusePerfectScrollbar (paste)="onPaste($event.clipboardData.getData('text/plain'))">
+
+  <div fxLayout="column" fxLayout.gt-sm="row warp">
+    <div fxFlex="100" fxFlex.gt-sm="30">
+      <mat-card>
+        <form name="collaboratorForm" [formGroup]="collaboratorForm" novalidate>
+          <mat-form-field appearance="outline">
+            <mat-label>กรุณากรอก E-mail</mat-label>
+            <input matInput formControlName="email" [(ngModel)]="collaborator.email">
+            <mat-icon matSuffix class="secondary-text">mail</mat-icon>
+            <mat-error *ngIf="collaboratorForm.get('email').hasError('required')">
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="!collaboratorForm.get('email').hasError('required') &&
+                                    collaboratorForm.get('email').hasError('email')">
+              Please enter a valid email address
+            </mat-error>
+          </mat-form-field>
+          <button class="bt_add" mat-raised-button color="accent" aria-label="LOGIN"
+            [disabled]="collaboratorForm.invalid" (click)="onAddCollaborator()">
+            add collaborator
+          </button>
+        </form>
+      </mat-card>
+    </div>
+    <div fxFlex="100" fxFlex.gt-sm="70">
+      <div>
+        <div *ngFor="let collaborator of collaborators">
+          <div class="ng">
+            <div class="fontemail">{{collaborator.email}}</div>
+            <div>{{collaborator.schoolid}}</div>
+          </div>
+          <div class="bt_link">
+            <button mat-raised-button color="accent">link</button>
+          </div>
+          <div class="bt_cancel">
+            <button mat-raised-button color="warn" (click)="onDelete(collaborator._id)">cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

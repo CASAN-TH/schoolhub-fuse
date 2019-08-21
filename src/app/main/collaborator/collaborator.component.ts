@@ -1,3 +1,4 @@
+import { fuseAnimations } from '@fuse/animations';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { Component, OnInit } from '@angular/core';
 import { CollaboratorService } from './collaborator.service';
@@ -10,7 +11,8 @@ import { SchoolService } from '../school/school.service';
 @Component({
   selector: 'app-collaborator',
   templateUrl: './collaborator.component.html',
-  styleUrls: ['./collaborator.component.scss']
+  styleUrls: ['./collaborator.component.scss'],
+  animations : fuseAnimations
 })
 export class CollaboratorComponent implements OnInit {
   collaboratorForm: FormGroup;
@@ -18,6 +20,7 @@ export class CollaboratorComponent implements OnInit {
   collaborator = {
     email: ""
   }
+ 
 
   // schoolId: any;
   constructor(
