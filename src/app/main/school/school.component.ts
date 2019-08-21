@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material';
@@ -27,9 +27,11 @@ export class SchoolComponent implements OnInit {
   };
 
   constructor(public dialogRef: MatDialogRef<SchoolComponent>,
-    private sch: SchoolService, 
+    private sch: SchoolService,
     private _formBuilder: FormBuilder,
-    private router: Router) { }
+    private router: Router) {
+    this.sch.savedschool = new EventEmitter();
+  }
 
   ngOnInit(): void {
     this.schoolForm = this._formBuilder.group({
@@ -50,10 +52,10 @@ export class SchoolComponent implements OnInit {
     this.sch.saveSchool(this.school);
     this.sch.savedschool.subscribe((res: any) => {
       if (res.status == 200) {
-        console.log(res);
-        alert("เพิ่มข้อมูลสำเร็จ");
+        // console.log(res);
+        this.sch.getbyid(res.data._id);
+        // console.log(this.sch.info);
         this.dialogRef.close()
-        this.router.navigate(['/collaborator', { schoolId: JSON.stringify(res.data._id), si: false }]);
       }
     })
   }

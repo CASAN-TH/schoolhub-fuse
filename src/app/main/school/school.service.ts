@@ -7,9 +7,11 @@ import { environment } from 'environments/environment';
 })
 export class SchoolService {
 
-  @Output() savedschool: EventEmitter<any> = new EventEmitter();
-
-  constructor(private http: HttpClient) { }
+  @Output() savedschool: EventEmitter<any>;// = new EventEmitter();
+  
+  constructor(private http: HttpClient) {
+    
+  }
 
   private authorizationHeader() {
     const token = window.localStorage.getItem(`token@${environment.appName}`);
@@ -23,6 +25,15 @@ export class SchoolService {
       this.savedschool.emit(res);
     }, (err) => {
       this.savedschool.emit(err);
+    })
+  }
+
+  getbyid(id: any) {
+    this.http.get(environment.apiUrl + "/api/schools/" + id, { headers: this.authorizationHeader() }).subscribe((res: any) => {
+      window.localStorage.setItem("schoolinfo", JSON.stringify(res.data));
+      
+    }, (err: any) => {
+
     })
   }
 }
