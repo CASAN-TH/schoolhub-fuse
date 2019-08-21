@@ -19,7 +19,7 @@ export class CollaboratorService {
 
   getlist() {
     this.http.get(environment.apiUrl + "/api/collaborators", { headers: this.authorizationHeader() }).subscribe((res: any) => {
-      console.log(res);
+      // console.log(res);
       this.gettinglist.emit(res);
     }, (err) => {
       this.gettinglist.emit(err);

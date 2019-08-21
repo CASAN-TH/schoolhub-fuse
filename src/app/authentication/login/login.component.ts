@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { FuseConfigService } from '@fuse/services/config.service';
 import { fuseAnimations } from '@fuse/animations';
 import { AuthenService } from '../authen.service';
 import { Router } from '@angular/router';
+import { SchoolService } from 'app/main/school/school.service';
 
 @Component({
     selector: 'login',
@@ -29,7 +30,8 @@ export class LoginComponent implements OnInit {
         private _fuseConfigService: FuseConfigService,
         private _formBuilder: FormBuilder,
         private router: Router,
-        private auth: AuthenService
+        private auth: AuthenService,
+        private sch: SchoolService
     ) {
         // Configure the layout
         this._fuseConfigService.config = {
@@ -48,6 +50,8 @@ export class LoginComponent implements OnInit {
                 }
             }
         };
+
+        this.auth.isLoggedIn = new EventEmitter();
     }
 
     // -----------------------------------------------------------------------------------------------------
@@ -70,11 +74,18 @@ export class LoginComponent implements OnInit {
     login(): void {
         this.auth.login(this.user);
         this.auth.isLoggedIn.subscribe((res: any) => {
-            if (res.status === 200){
+            if (res.status === 200) {
+                this.sch.getbyid(this.auth.user.ref1);
                 this.router.navigate(['']);
-            }else{
+            } else {
                 // error
             }
+        }, (err: any) => {
+            console.log(err);
+        }, () => {
+            console.log("complete");
         });
     }
+
+
 }

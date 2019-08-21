@@ -18,8 +18,8 @@ export class CollaboratorComponent implements OnInit {
   collaborator = {
     email: ""
   }
-  
-  schoolId: any;
+
+  // schoolId: any;
   constructor(
     private sch: SchoolService,
     private route: ActivatedRoute,
@@ -27,14 +27,14 @@ export class CollaboratorComponent implements OnInit {
     private _formBuilder: FormBuilder, ) { }
 
   ngOnInit() {
-    let _id = this.route.snapshot.paramMap.get('schoolId');
-    this.schoolId = JSON.parse(_id);
-    console.log(this.schoolId);
+    // let _id = this.route.snapshot.paramMap.get('schoolId');
+    // this.schoolId = JSON.parse(_id);
+    // console.log(this.schoolId);
     this.collaboratorForm = this._formBuilder.group({
       email: ['', [Validators.required, Validators.email]]
-      
-    });
 
+    });
+    console.log(JSON.parse(window.localStorage.getItem("schoolinfo")));
     this.getList();
   }
   onAddCollaborator() {
@@ -58,9 +58,9 @@ export class CollaboratorComponent implements OnInit {
   onDelete(_id) {
     console.log(_id);
     this.collab.delete(_id);
-    this.collab.deleted.subscribe((res:any)=> {
+    this.collab.deleted.subscribe((res: any) => {
       if (res.status == 200) {
-      this.getList();
+        this.getList();
       }
     })
   }

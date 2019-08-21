@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation, EventEmitter } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -11,14 +11,13 @@ import { MatDialog } from '@angular/material';
 import { SchoolComponent } from 'app/main/school/school.component';
 
 @Component({
-    selector     : 'register',
-    templateUrl  : './register.component.html',
-    styleUrls    : ['./register.component.scss'],
+    selector: 'register',
+    templateUrl: './register.component.html',
+    styleUrls: ['./register.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    animations   : fuseAnimations
+    animations: fuseAnimations
 })
-export class RegisterComponent implements OnInit, OnDestroy
-{
+export class RegisterComponent implements OnInit, OnDestroy {
     registerForm: FormGroup;
     user = {
         firstname: '',
@@ -26,6 +25,7 @@ export class RegisterComponent implements OnInit, OnDestroy
         email: '',
         username: '',
         password: '',
+        ref1: '-'
     };
 
     // Private
@@ -37,18 +37,17 @@ export class RegisterComponent implements OnInit, OnDestroy
         private _formBuilder: FormBuilder,
         private router: Router,
         private auth: AuthenService
-    )
-    {
+    ) {
         // Configure the layout
         this._fuseConfigService.config = {
             layout: {
-                navbar   : {
+                navbar: {
                     hidden: true
                 },
-                toolbar  : {
+                toolbar: {
                     hidden: true
                 },
-                footer   : {
+                footer: {
                     hidden: true
                 },
                 sidepanel: {
@@ -59,6 +58,10 @@ export class RegisterComponent implements OnInit, OnDestroy
 
         // Set the private defaults
         this._unsubscribeAll = new Subject();
+
+
+        this.auth.isRegisted = new EventEmitter();
+        this.auth.isLoggedIn = new EventEmitter();
     }
 
     // -----------------------------------------------------------------------------------------------------
@@ -68,12 +71,11 @@ export class RegisterComponent implements OnInit, OnDestroy
     /**
      * On init
      */
-    ngOnInit(): void
-    {
+    ngOnInit(): void {
         this.registerForm = this._formBuilder.group({
-            name           : ['', Validators.required],
-            email          : ['', [Validators.required, Validators.email]],
-            password       : ['', Validators.required],
+            name: ['', Validators.required],
+            email: ['', [Validators.required, Validators.email]],
+            password: ['', Validators.required],
             passwordConfirm: ['', [Validators.required, confirmPasswordValidator]]
         });
 
@@ -89,8 +91,7 @@ export class RegisterComponent implements OnInit, OnDestroy
     /**
      * On destroy
      */
-    ngOnDestroy(): void
-    {
+    ngOnDestroy(): void {
         // Unsubscribe from all subscriptions
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();
@@ -99,14 +100,14 @@ export class RegisterComponent implements OnInit, OnDestroy
     /**
      * On register button click
      */
-    register(): void{
+    register(): void {
         this.user.username = this.user.email;
         this.auth.register(this.user);
-        this.auth.isLoggedIn.subscribe((res: any) => {
-            if (res.status === 200){
+        this.auth.isRegisted.subscribe((res: any) => {
+            if (res.status === 200) {
                 this.openDialog();
                 // this.router.navigate(['']);
-            }else{
+            } else {
                 // error
             }
         });
@@ -114,13 +115,28 @@ export class RegisterComponent implements OnInit, OnDestroy
 
     openDialog(): void {
         const dialogRef = this.dialog.open(SchoolComponent, {
-          width: "1000px"
+            width: "1000px"
         });
-    
+
         dialogRef.afterClosed().subscribe(result => {
-          console.log("openDialog");
+            // console.log("openDialog");
+            this.auth.login(this.user);
+            this.auth.isLoggedIn.subscribe((res: any) => {
+
+                if (res.status === 200) {
+                    // console.log(this.auth.user);
+                    this.router.navigate(['']);
+                } else {
+                    // error
+                }
+            }, (err: any) => {
+                console.log(err);
+            }, () => {
+                console.log("complete");
+            });
+
         });
-      }
+    }
 
 }
 
@@ -132,28 +148,24 @@ export class RegisterComponent implements OnInit, OnDestroy
  */
 export const confirmPasswordValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
 
-    if ( !control.parent || !control )
-    {
+    if (!control.parent || !control) {
         return null;
     }
 
     const password = control.parent.get('password');
     const passwordConfirm = control.parent.get('passwordConfirm');
 
-    if ( !password || !passwordConfirm )
-    {
+    if (!password || !passwordConfirm) {
         return null;
     }
 
-    if ( passwordConfirm.value === '' )
-    {
+    if (passwordConfirm.value === '') {
         return null;
     }
 
-    if ( password.value === passwordConfirm.value )
-    {
+    if (password.value === passwordConfirm.value) {
         return null;
     }
 
-    return {'passwordsNotMatching': true};
+    return { 'passwordsNotMatching': true };
 };
