@@ -24,7 +24,7 @@ export class CollaboratorService {
     }, (err) => {
       this.gettinglist.emit(err);
     })
-  }m
+  }
   create(data: any) {
     this.http.post(environment.apiUrl + "/api/collaborators", data, { headers: this.authorizationHeader() }).subscribe((res: any) => {
       this.created.emit(res);
@@ -34,8 +34,8 @@ export class CollaboratorService {
   }
   delete(_id) {
     this.http.delete(environment.apiUrl + "/api/collaborators/" + _id, { headers: this.authorizationHeader() }).subscribe((res: any) => {
-     this.deleted.emit(res);
-    },(err)=>{
+      this.deleted.emit(res);
+    }, (err) => {
       this.deleted.emit(err);
     })
   }

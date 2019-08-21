@@ -1,30 +1,40 @@
-<div *ngFor="let collaborator of collaborators" class="addcollab">
-  {{collaborator.email}}-{{collaborator.schoolid}}
-  <div><button>link</button>
-  <button (click)="onDelete(collaborator._id)">cancel</button></div>
-</div>
-
-<div class="example-card">
-  <mat-card  >
+<div class="example-card2">
+  <mat-card>
     <form name="collaboratorForm" [formGroup]="collaboratorForm" novalidate>
       <mat-form-field appearance="outline">
-        <mat-label>Email</mat-label>
+        <mat-label>กรุณากรอก E-mail</mat-label>
         <input matInput formControlName="email" [(ngModel)]="collaborator.email">
         <mat-icon matSuffix class="secondary-text">mail</mat-icon>
         <mat-error *ngIf="collaboratorForm.get('email').hasError('required')">
           Email is required
         </mat-error>
         <mat-error *ngIf="!collaboratorForm.get('email').hasError('required') &&
-                        collaboratorForm.get('email').hasError('email')">
+                            collaboratorForm.get('email').hasError('email')">
           Please enter a valid email address
         </mat-error>
       </mat-form-field>
-      <div><button mat-raised-button color="accent" class="submit-button" aria-label="LOGIN"
-          [disabled]="collaboratorForm.invalid" (click)="onAddCollaborator()">
-          add collaborator
-        </button></div>
-
-
+      <button class="bt_add" mat-raised-button color="accent" aria-label="LOGIN" [disabled]="collaboratorForm.invalid"
+        (click)="onAddCollaborator()">
+        add collaborator
+      </button>
     </form>
+
+
+    <div> 
+      <div *ngFor="let collaborator of collaborators">
+        <div class="ng">
+          <div class="fontemail">{{collaborator.email}}</div>
+          <div>{{collaborator.schoolid}}</div>
+        </div>
+        <div class="bt_link" >
+          <button mat-raised-button color="accent">link</button>
+        </div>
+        <div class="bt_cancel">
+          <button mat-raised-button color="warn" (click)="onDelete(collaborator._id)">cancel</button>
+        </div>
+      </div>
+    </div>
+
+
   </mat-card>
 </div>

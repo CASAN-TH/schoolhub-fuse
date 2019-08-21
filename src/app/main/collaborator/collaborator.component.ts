@@ -29,7 +29,7 @@ export class CollaboratorComponent implements OnInit {
   ngOnInit() {
     let _id = this.route.snapshot.paramMap.get('schoolId');
     this.schoolId = JSON.parse(_id);
-    console.log(this.schoolId);
+    //console.log(this.schoolId);
     this.collaboratorForm = this._formBuilder.group({
       email: ['', [Validators.required, Validators.email]]
       
@@ -56,7 +56,7 @@ export class CollaboratorComponent implements OnInit {
   }
 
   onDelete(_id) {
-    console.log(_id);
+    //console.log(_id);
     this.collab.delete(_id);
     this.collab.deleted.subscribe((res:any)=> {
       if (res.status == 200) {
