@@ -115,7 +115,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
     openDialog(): void {
         const dialogRef = this.dialog.open(SchoolComponent, {
-            width: "1000px"
+            width: "800px", height: "100%"
         });
 
         dialogRef.afterClosed().subscribe(result => {

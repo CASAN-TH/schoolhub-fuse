@@ -27,7 +27,7 @@
     <div></div>
   </div> -->
 
-  <mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- <mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="stdno">
       <mat-header-cell #th *matHeaderCellDef> รหัสนักเรียน </mat-header-cell>
       <mat-cell #td *matCellDef="let element"> {{element.stdno}} </mat-cell>
@@ -42,5 +42,23 @@
     </ng-container>
     <mat-header-row #tr *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row #tr *matRowDef="let row; columns: displayedColumns;" (keydown)="tableKeydown($event)" (click)="selection.select(row)"></mat-row>
-  </mat-table>
+  </mat-table> -->
+  <div fxLayout="column" fxLayout.gt-sm="row wrap">
+    <div fxFlex="100" fxFlex.gt-sm="100" fxLayoutAlign="center">1</div>
+    <div fxFlex="100" fxFlex.gt-sm="30" fxLayoutAlign="center">2</div>
+    <div fxFlex="100" fxFlex.gt-sm="30" fxLayoutAlign="center">3</div>
+    <div fxFlex="100" fxFlex.gt-sm="30" fxLayoutAlign="center">4</div>
+    <div fxFlex="100" fxFlex.gt-sm="100" fxLayoutAlign="center">5</div>
+    <div fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="center">6</div>
+    <div fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="center">7</div>
+    <div fxFlex="100" fxFlex.gt-sm="100" fxLayoutAlign="center">8</div>
+    <div fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="center">9</div>
+    <div fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="center">10</div>
+
+  </div>
+
+
+
+
+
 </div>
