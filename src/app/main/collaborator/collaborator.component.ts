@@ -20,6 +20,7 @@ export class CollaboratorComponent implements OnInit {
   collaborator = {
     email: ""
   }
+  displayedColumns = ['checkbox', 'avatar',  'email', 'phone', 'schoolid', 'buttons'];
  
 
   // schoolId: any;
