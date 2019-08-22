@@ -87,6 +87,7 @@ $typography: mat-typography-config(
 @import "src/app/authentication/lock/lock.theme";
 @import "src/app/authentication/mail-confirm/mail-confirm.theme";
 @import "../app/main/collaborator/collborator.theme";
+@import "src/app/main/student/student.theme";
 
 // Define a mixin for easier access
 @mixin components-theme($theme) {
@@ -101,6 +102,7 @@ $typography: mat-typography-config(
     @include lock-theme($theme);
     @include mail-confirm-theme($theme);
     @include collaborators-theme($theme);
+    @include students-theme($theme);
 }
 
 // -----------------------------------------------------------------------------------------------------
