@@ -1,36 +1,43 @@
+@import "src/@fuse/scss/fuse";
 
+#collaborators {
 
-.example-card {
-  width: 80%;
-  height: 20%;
-  margin-top: 20%;
-  margin: 10%;
-}
-.example-card2 {
-  width: 80%;
-  height: 20%;
-  margin-top: 1%;
-  margin: 1%;
-}
-.fontemail {
-  font-size: 120%;
-}
-.bt_link {
-  margin-top: -4%;
-  margin-left: 28%;
-}
-.bt_cancel {
-  margin-top: -4%;
-  margin-left: 37%;
-}
-.ng {
-  margin-top: 3%;
-  margin-left: 1%;
-  margin-bottom: -4%;
-}
-.bt_add {
-  margin-left: 5%;
-}
-.h1{
-    font-size: 15px;
+    .header {
+
+        .search-wrapper {
+            width: 100%;
+            max-width: 480px;
+            border-radius: 28px;
+            overflow: hidden;
+            @include mat-elevation(1);
+
+            .search {
+                width: 100%;
+                height: 48px;
+                line-height: 48px;
+                padding: 0 18px;
+
+                input {
+                    width: 100%;
+                    height: 48px;
+                    min-height: 48px;
+                    max-height: 48px;
+                    padding: 0 16px;
+                    border: none;
+                    outline: none;
+                }
+            }
+        }
+    }
+
+    .content {
+        overflow: hidden;
+
+        .sidebar {
+
+            &:not(.locked-open) {
+                background: white;
+            }
+        }
+    }
 }

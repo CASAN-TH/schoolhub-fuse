@@ -6,6 +6,10 @@ import { MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatIconModule, 
 import { FuseSharedModule } from '@fuse/shared.module';
 import {MatCardModule} from '@angular/material/card';
 import { FuseConfirmDialogModule, FuseSidebarModule } from '@fuse/components';
+import { MainComponent } from './sidebar/main/main.component';
+import { CollaboratorListComponent } from './collaborator-list/collaborator-list.component';
+
+
 
 
 const routes = [
@@ -17,11 +21,10 @@ const routes = [
 ];
 
 @NgModule({
-  declarations: [CollaboratorComponent],
+  declarations: [CollaboratorComponent, MainComponent, CollaboratorListComponent],
   imports: [
     RouterModule.forChild(routes),
     MatButtonModule,
-    MatCheckboxModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,

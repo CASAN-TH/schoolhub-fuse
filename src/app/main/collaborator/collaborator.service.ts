@@ -6,6 +6,9 @@ import { environment } from 'environments/environment';
   providedIn: 'root'
 })
 export class CollaboratorService {
+  updateContact(arg0: any) {
+    throw new Error("Method not implemented.");
+  }
   @Output() gettinglist: EventEmitter<any> = new EventEmitter();
   @Output() created: EventEmitter<any> = new EventEmitter();
   @Output() deleted: EventEmitter<any> = new EventEmitter();
