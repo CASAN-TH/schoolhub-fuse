@@ -20,6 +20,10 @@ import { SampleModule } from 'app/main/sample/sample.module';
 
 const appRoutes: Routes = [
     {
+        path        : 'student',
+        loadChildren: './main/student/student.module#StudentModule'
+    },
+    {
         path        : 'collaborator',
         loadChildren: './main/collaborator/collaborator.module#CollaboratorModule'
     },
