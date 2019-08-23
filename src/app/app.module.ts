@@ -22,6 +22,10 @@ import { SampleModule } from 'app/main/sample/sample.module';
 
 const appRoutes: Routes = [
     {
+        path        : 'courses',
+        loadChildren: './main/courses/courses.module#CoursesModule'
+    },
+    {
         path        : 'student',
         loadChildren: './main/student/student.module#StudentModule'
     },
@@ -39,13 +43,13 @@ const appRoutes: Routes = [
     },
     {
         path      : '**',
-        redirectTo: 'admission'
+        redirectTo: 'courses'
     }
 ];
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
     ],
     imports     : [
         BrowserModule,

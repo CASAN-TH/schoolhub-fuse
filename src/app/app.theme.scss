@@ -86,6 +86,7 @@ $typography: mat-typography-config(
 @import "src/app/authentication/reset-password/reset-password.theme";
 @import "src/app/authentication/lock/lock.theme";
 @import "src/app/authentication/mail-confirm/mail-confirm.theme";
+@import "src/app/main/courses/courses.theme";
 @import "../app/main/collaborator/collborator.theme";
 @import "src/app/main/student/student.theme";
 
@@ -101,6 +102,7 @@ $typography: mat-typography-config(
     @include reset-password-theme($theme);
     @include lock-theme($theme);
     @include mail-confirm-theme($theme);
+    @include courses-theme($theme);
     @include collaborators-theme($theme);
     @include students-theme($theme);
 }
