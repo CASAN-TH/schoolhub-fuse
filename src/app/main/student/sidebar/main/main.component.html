@@ -10,19 +10,19 @@
               <div class="nav-item" aria-label="inbox">
                   <a class="nav-link" matRipple (click)="changeFilter('all')"
                      [ngClass]="{'active accent':filterBy ==='all'}">
-                      <span class="title">All Contacts</span>
+                      <span class="title">นักเรียนทั้งหมด</span>
                   </a>
               </div>
 
               <div class="nav-item" aria-label="frequently contacted" (click)="changeFilter('frequent')">
                   <a class="nav-link" matRipple [ngClass]="{'active accent':filterBy ==='frequent'}">
-                      <div class="title">Freequently contacted</div>
+                      <div class="title">นักเรียนที่กำลังศึกษา</div>
                   </a>
               </div>
 
               <div class="nav-item" aria-label="starred" (click)="changeFilter('starred')">
                   <a class="nav-link" matRipple [ngClass]="{'active accent':filterBy ==='starred'}">
-                      <div class="title">Starred Contacts</div>
+                      <div class="title">นักเรียนที่จบการศึกษา</div>
                   </a>
               </div>
           </div>
