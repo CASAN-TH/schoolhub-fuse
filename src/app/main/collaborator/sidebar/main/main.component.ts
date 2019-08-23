@@ -1,34 +1,31 @@
-import { fuseAnimations } from '@fuse/animations';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { filter } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
-import { CollaboratorService } from './collaborator.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { SchoolService } from 'app/main/school/school.service';
 import { ActivatedRoute } from '@angular/router';
-import { SchoolService } from '../school/school.service';
-
-
+import { CollaboratorService } from '../../collaborator.service';
 
 @Component({
-  selector: 'app-collaborator',
-  templateUrl: './collaborator.component.html',
-  styleUrls: ['./collaborator.component.scss']
+  selector: 'collaborator-main-sidebar',
+  templateUrl: './main.component.html',
+  styleUrls: ['./main.component.scss']
 })
-export class CollaboratorComponent implements OnInit {
+export class MainComponent implements OnInit {
   collaboratorForm: FormGroup;
   collaborators = [];
   collaborator = {
     email: ""
   }
- 
+  filterBy: string;
 
-  // schoolId: any;
   constructor(
     private sch: SchoolService,
     private route: ActivatedRoute,
     private collab: CollaboratorService,
-    private _formBuilder: FormBuilder, ) { }
+    private _formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.filterBy = 'all';
     // let _id = this.route.snapshot.paramMap.get('schoolId');
     // this.schoolId = JSON.parse(_id);
     // console.log(this.schoolId);
@@ -39,6 +36,11 @@ export class CollaboratorComponent implements OnInit {
     console.log(JSON.parse(window.localStorage.getItem("schoolinfo")));
     this.getList();
   }
+  changeFilter(filter) : void
+  {
+    this.filterBy = filter;
+  }
+
   onAddCollaborator() {
     this.collab.create(this.collaborator);
     this.collab.created.subscribe((res: any) => {

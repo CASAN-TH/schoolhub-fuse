@@ -10,69 +10,76 @@
         </div>
 
         <div fxLayout="row wrap" fxLayoutAlign="start center" fxFlex="1 0 auto">
-          <mat-form-field appearance="outline" fxFlex="50" fxFlex.gt-sm="30" class="pr-4">
+          <mat-form-field appearance="outline" fxFlex="100" fxFlex.gt-sm="100" class="pr-4">
             <mat-label>ชื่อโรงเรียน</mat-label>
             <input matInput formControlName="schoolname" [(ngModel)]="school.schoolname">
             <mat-error>กรุณากรอกชื่อ "โรงเรียน"</mat-error>
           </mat-form-field>
 
-          <mat-form-field appearance="outline" fxFlex="50" fxFlex.gt-sm="30" class="pr-4">
-            <mat-label>สังกัด</mat-label>
-            <input matInput formControlName="under" [(ngModel)]="school.under">
-            <mat-error>กรุณากรอก "สังกัด"</mat-error>
-          </mat-form-field>
+        
+        </div>
+
+        <div>
+
+            <mat-form-field appearance="outline" fxFlex="100" fxFlex.gt-sm="33" class="pr-4">
+                <mat-label>ตำบล</mat-label>
+                <input matInput formControlName="subdistric" [(ngModel)]="school.subdistric">
+                <mat-error>กรุณากรอก "ตำบล"</mat-error>
+              </mat-form-field>
+
+            <mat-form-field appearance="outline" fxFlex="100" fxFlex.gt-sm="33" class="pr-4">
+                <mat-label>อำเภอ</mat-label>
+                <input matInput formControlName="distric" [(ngModel)]="school.distric">
+                <mat-error>กรุณากรอก "อำเภอ"</mat-error>
+              </mat-form-field>
+    
+              <mat-form-field appearance="outline" fxFlex="100" fxFlex.gt-sm="33" class="pr-4">
+                <mat-label>จังหวัด</mat-label>
+                <input matInput formControlName="province" [(ngModel)]="school.province">
+                <mat-error>กรุณากรอก "จังหวัด"</mat-error>
+              </mat-form-field>
         </div>
 
         <div fxLayout="row wrap" fxLayoutAlign="start center" fxFlex="1 0 auto">
-          <mat-form-field appearance="outline" fxFlex="50" fxFlex.gt-sm="30" class="pr-4">
+          <mat-form-field appearance="outline" fxFlex="100" fxFlex.gt-sm="100" class="pr-4">
             <mat-label>เขตพื้นที่</mat-label>
             <input matInput formControlName="area" [(ngModel)]="school.area">
             <mat-error>กรุณากรอก "เขตพื้นที่"</mat-error>
           </mat-form-field>
 
-          <mat-form-field appearance="outline" fxFlex="50" fxFlex.gt-sm="30" class="pr-4">
-            <mat-label>ตำบล</mat-label>
-            <input matInput formControlName="subdistric" [(ngModel)]="school.subdistric">
-            <mat-error>กรุณากรอก "ตำบล"</mat-error>
-          </mat-form-field>
+        
         </div>
 
         <div fxLayout="row wrap" fxLayoutAlign="start center" fxFlex="1 0 auto">
-          <mat-form-field appearance="outline" fxFlex="50" fxFlex.gt-sm="30" class="pr-4">
-            <mat-label>อำเภอ</mat-label>
-            <input matInput formControlName="distric" [(ngModel)]="school.distric">
-            <mat-error>กรุณากรอก "อำเภอ"</mat-error>
-          </mat-form-field>
-
-          <mat-form-field appearance="outline" fxFlex="50" fxFlex.gt-sm="30" class="pr-4">
-            <mat-label>จังหวัด</mat-label>
-            <input matInput formControlName="province" [(ngModel)]="school.province">
-            <mat-error>กรุณากรอก "จังหวัด"</mat-error>
-          </mat-form-field>
+            <mat-form-field appearance="outline" fxFlex="100" fxFlex.gt-sm="50" class="pr-4">
+                <mat-label>ชื่อนายทะเบียน</mat-label>
+                <input matInput formControlName="registrar" [(ngModel)]="school.registrar">
+                <mat-error>กรุณากรอก "ชื่อนายทะเบียน"</mat-error>
+              </mat-form-field>
+    
+              <mat-form-field appearance="outline" fxFlex="100" fxFlex.gt-sm="50" class="pr-4">
+                <mat-label>ตำแหน่ง</mat-label>
+                <input matInput formControlName="position" [(ngModel)]="school.position">
+                <mat-error>กรุณากรอก "ตำแหน่ง"</mat-error>
+              </mat-form-field>
         </div>
 
         <div fxLayout="row wrap" fxLayoutAlign="start center" fxFlex="1 0 auto">
-          <mat-form-field appearance="outline" fxFlex="50" fxFlex.gt-sm="30" class="pr-4">
-            <mat-label>นายทะเบียน</mat-label>
-            <input matInput formControlName="registrar" [(ngModel)]="school.registrar">
-            <mat-error>กรุณากรอก "นายทะเบียน"</mat-error>
-          </mat-form-field>
-
-          <mat-form-field appearance="outline" fxFlex="50" fxFlex.gt-sm="30" class="pr-4">
-            <mat-label>ตำแหน่ง</mat-label>
-            <input matInput formControlName="position" [(ngModel)]="school.position">
-            <mat-error>กรุณากรอก "ตำแหน่ง"</mat-error>
-          </mat-form-field>
+            <mat-form-field appearance="outline" fxFlex="100" fxFlex.gt-sm="100" class="pr-4">
+                <mat-label>สังกัด</mat-label>
+                <input matInput formControlName="under" [(ngModel)]="school.under">
+                <mat-error>กรุณากรอก "สังกัด"</mat-error>
+              </mat-form-field>
         </div>
 
         <div fxLayout="row wrap" fxLayoutAlign="start center" fxFlex="1 0 auto">
-          <mat-form-field appearance="outline" fxFlex="50" fxFlex.gt-sm="30" class="pr-4">
+          <mat-form-field appearance="outline" fxFlex="100" fxFlex.gt-sm="50" class="pr-4">
             <mat-label>ผู้อำนวยการ</mat-label>
             <input matInput formControlName="direction" [(ngModel)]="school.direction">
             <mat-error>กรุณากรอก "ผู้อำนวยการ"</mat-error>
           </mat-form-field>
 
-          <mat-form-field appearance="outline" fxFlex="50" fxFlex.gt-sm="30" class="pr-4">
+          <mat-form-field appearance="outline" fxFlex="100" fxFlex.gt-sm="50" class="pr-4">
             <mat-label>ตำแหน่ง</mat-label>
             <input matInput formControlName="positions" [(ngModel)]="school.positions">
             <mat-error>กรุณากรอก "ตำแหน่ง"</mat-error>

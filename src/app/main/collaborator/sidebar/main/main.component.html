@@ -1,0 +1,36 @@
+<div class="sidebar-content">
+
+  <div class="card">
+
+    <div class="content py-16" fusePerfectScrollbar>
+
+      <div class="nav material2">
+
+        <div>
+            <form name="collaboratorForm" [formGroup]="collaboratorForm" novalidate>
+              <mat-form-field appearance="outline">
+                <mat-label>กรุณากรอก E-mail</mat-label>
+                <input matInput formControlName="email" [(ngModel)]="collaborator.email">
+                <mat-icon matSuffix class="secondary-text">mail</mat-icon>
+                <mat-error *ngIf="collaboratorForm.get('email').hasError('required')">
+                  Email is required
+                </mat-error>
+                <mat-error *ngIf="!collaboratorForm.get('email').hasError('required') &&
+                                            collaboratorForm.get('email').hasError('email')">
+                  Please enter a valid email address
+                </mat-error>
+              </mat-form-field>
+              <button class="bt_add" mat-raised-button color="accent" aria-label="LOGIN"
+                [disabled]="collaboratorForm.invalid" (click)="onAddCollaborator()">
+                add collaborator
+              </button>
+            </form>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+<!-- / SIDEBAR CONTENT -->

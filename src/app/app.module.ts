@@ -18,10 +18,16 @@ import { AppComponent } from 'app/app.component';
 import { LayoutModule } from 'app/layout/layout.module';
 import { SampleModule } from 'app/main/sample/sample.module';
 
+
+
 const appRoutes: Routes = [
     {
         path        : 'courses',
         loadChildren: './main/courses/courses.module#CoursesModule'
+    },
+    {
+        path        : 'student',
+        loadChildren: './main/student/student.module#StudentModule'
     },
     {
         path        : 'collaborator',
