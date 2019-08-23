@@ -75,12 +75,6 @@
             <button mat-raised-button color="accent">link</button>
             <button mat-raised-button color="warn" (click)="onDelete(collaborator._id)">cancel</button>
             <div>
-              <mat-menu #moreMenu="matMenu">
-                <button mat-menu-item aria-label="remove" (click)="deleteContact(contact)">
-                  <mat-icon>delete</mat-icon>
-                  <span>Remove</span>
-                </button>
-              </mat-menu>
             </div>
           </div>
         </div>
@@ -88,6 +82,8 @@
     </div>
   </div>
 </div> -->
+
+
 <div id="collaborators" class="page-layout simple left-sidebar inner-sidebar inner-scroll">
 
   <!-- HEADER -->
@@ -102,7 +98,7 @@
       </button>
 
       <div class="logo" fxLayout="row" fxLayoutAlign="start center">
-        <mat-icon class="logo-icon mr-16">account_box
+        <mat-icon class="logo-icon mr-16">group_add
         </mat-icon>
         <span class="logo-text h1">
           Collaborator
@@ -121,7 +117,7 @@
           <mat-icon>search</mat-icon>
           <input placeholder="Search for a contact">
         </div>
-
+        
       </div>
 
     </div>
@@ -151,7 +147,7 @@
     <div class="center p-24 pb-56 pr-sm-92" fusePerfectScrollbar>
 
       <!-- CONTENT -->
-      <div class="content">
+      <div class="content" >
        <collaborator-list></collaborator-list>
       </div>
       <!-- / CONTENT -->

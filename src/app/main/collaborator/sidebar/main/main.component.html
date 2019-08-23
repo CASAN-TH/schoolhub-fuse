@@ -7,7 +7,7 @@
       <div class="nav material2">
 
         <div>
-            <form name="collaboratorForm" [formGroup]="collaboratorForm" novalidate>
+            <form name="collaboratorForm" [formGroup]="collaboratorForm" novalidate> 
               <mat-form-field appearance="outline">
                 <mat-label>กรุณากรอก E-mail</mat-label>
                 <input matInput formControlName="email" [(ngModel)]="collaborator.email">
@@ -20,7 +20,7 @@
                   Please enter a valid email address
                 </mat-error>
               </mat-form-field>
-              <button class="bt_add" mat-raised-button color="accent" aria-label="LOGIN"
+              <button class="addcoll" mat-raised-button color="accent" aria-label="LOGIN"
                 [disabled]="collaboratorForm.invalid" (click)="onAddCollaborator()">
                 add collaborator
               </button>
