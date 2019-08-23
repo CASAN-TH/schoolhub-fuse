@@ -86,6 +86,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
             .subscribe(() => {
                 this.registerForm.get('passwordConfirm').updateValueAndValidity();
             });
+
+            
     }
 
     /**
@@ -115,7 +117,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
     openDialog(): void {
         const dialogRef = this.dialog.open(SchoolComponent, {
-            width: "800px", height: "100%"
+         width: "400px",  panelClass: "school"
         });
 
         dialogRef.afterClosed().subscribe(result => {

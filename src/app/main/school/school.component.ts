@@ -6,11 +6,13 @@ import { SchoolService } from './school.service';
 
 
 @Component({
-  selector: 'app-school',
+  selector: 'school',
   templateUrl: './school.component.html',
   styleUrls: ['./school.component.scss']
 })
 export class SchoolComponent implements OnInit {
+
+  dialogTitle: string;
 
   schoolForm: FormGroup;
   school = {
@@ -52,7 +54,7 @@ export class SchoolComponent implements OnInit {
     this.sch.saveSchool(this.school);
     this.sch.savedschool.subscribe((res: any) => {
       if (res.status == 200) {
-        // console.log(res);
+        console.log(res);
         this.sch.getbyid(res.data._id);
         // console.log(this.sch.info);
         this.dialogRef.close()
