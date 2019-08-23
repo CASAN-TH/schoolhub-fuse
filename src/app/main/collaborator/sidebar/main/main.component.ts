@@ -36,10 +36,10 @@ export class MainComponent implements OnInit {
     console.log(JSON.parse(window.localStorage.getItem("schoolinfo")));
     this.getList();
   }
-  changeFilter(filter) : void
-  {
-    this.filterBy = filter;
-  }
+  // changeFilter(filter) : void
+  // {
+  //   this.filterBy = filter;
+  // }
 
   onAddCollaborator() {
     this.collab.create(this.collaborator);
@@ -59,15 +59,7 @@ export class MainComponent implements OnInit {
     })
   }
 
-  onDelete(_id) {
-    //console.log(_id);
-    this.collab.delete(_id);
-    this.collab.deleted.subscribe((res: any) => {
-      if (res.status == 200) {
-        this.getList();
-      }
-    })
-  }
+ 
 
 
 }
