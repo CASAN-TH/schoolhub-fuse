@@ -4,32 +4,31 @@
     <ng-container matColumnDef="avatar">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
         <mat-cell *matCellDef="let contact">
-            <img class="avatar" *ngIf="contact.avatar" [alt]="contact.name"
-                 [src]="contact.avatar"/>
+            <img class="avatar" *ngIf="contact.avatar" [alt]="contact.name" [src]="contact.avatar" />
         </mat-cell>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>ชื่อนักเรียน</mat-header-cell>
         <mat-cell *matCellDef="let contact">
             <p class="text-truncate font-weight-600">{{contact.name}} {{contact.lastName}}</p>
         </mat-cell>
     </ng-container>
 
-    <!-- Email Column -->
-    <ng-container matColumnDef="email">
-        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-sm>Email</mat-header-cell>
+    <!-- StudentId Column -->
+    <ng-container matColumnDef="studentId">
+        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-sm>รหัสนักเรียน</mat-header-cell>
         <mat-cell *matCellDef="let contact" fxHide fxShow.gt-sm>
-            <p class="email text-truncate">
-                {{contact.email}}
+            <p class="studentId text-truncate">
+                {{contact.studentId}}
             </p>
         </mat-cell>
     </ng-container>
 
     <!-- Phone Column -->
     <ng-container matColumnDef="phone">
-        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md>Phone</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md>เบอร์โทรศัพท์</mat-header-cell>
         <mat-cell *matCellDef="let contact" fxHide fxShow.gt-md>
             <p class="phone text-truncate">
                 {{contact.phone}}
@@ -62,32 +61,20 @@
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
         <mat-cell *matCellDef="let contact">
             <div fxFlex="row" fxLayoutAlign="end center">
-                <button mat-icon-button  aria-label="Toggle star">
-                    <mat-icon class="amber-fg">star</mat-icon>
-                    <mat-icon class="secondary-text">star_border</mat-icon>
-                </button>
-
-                <button mat-icon-button aria-label="More"
-                        (click)="$event.stopPropagation();">
+                <button mat-icon-button aria-label="More" [matMenuTriggerFor]="moreMenu">
                     <mat-icon class="secondary-text">more_vert</mat-icon>
                 </button>
-
                 <mat-menu #moreMenu="matMenu">
-                    <button mat-menu-item aria-label="remove" >
+                    <button mat-menu-item aria-label="remove">
                         <mat-icon>delete</mat-icon>
                         <span>Remove</span>
                     </button>
                 </mat-menu>
             </div>
-
         </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let contact; columns: displayedColumns;"
-             class="contact"
-             matRipple>
+    <mat-row *matRowDef="let contact; columns: displayedColumns;" class="contact" matRipple>
     </mat-row>
 </mat-table>
-
-

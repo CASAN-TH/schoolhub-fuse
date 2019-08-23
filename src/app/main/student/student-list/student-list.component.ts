@@ -379,7 +379,7 @@ const contact: Students[] = [
 
 export class StudentListComponent implements OnInit {
   dataSource: any;
-  displayedColumns = ['avatar', 'name', 'email', 'phone', 'jobTitle', 'buttons'];
+  displayedColumns = ['avatar', 'name', 'studentId', 'phone', 'jobTitle', 'buttons'];
 
 
   constructor() { }
