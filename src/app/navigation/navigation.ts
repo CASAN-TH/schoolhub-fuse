@@ -36,12 +36,12 @@ export const navigation: FuseNavigation[] = [
                 }
             },
             {
-                id: 'course',
-                title: 'Course',
+                id: 'courses',
+                title: 'Courses',
                 translate: 'NAV.SAMPLE.TITLE',
                 type: 'item',
                 icon: 'assignment',
-                url: '/course',
+                url: '/courses',
                 badge: {
                     title: '25',
                     translate: 'NAV.SAMPLE.BADGE',
