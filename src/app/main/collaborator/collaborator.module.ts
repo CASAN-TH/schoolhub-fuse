@@ -8,16 +8,23 @@ import {MatCardModule} from '@angular/material/card';
 import { FuseConfirmDialogModule, FuseSidebarModule } from '@fuse/components';
 import { MainComponent } from './sidebar/main/main.component';
 import { CollaboratorListComponent } from './collaborator-list/collaborator-list.component';
+import { CollaboratorService } from './collaborator.service';
 
 
 
 
 const routes = [
+ 
   {
     path     : '',
     component: CollaboratorComponent,
-    canActivate: [AuthenGuardService]
+    canActivate: [AuthenGuardService],
+    resolve:{
+      aaa:CollaboratorService
+    }
   }
+  
+  
 ];
 
 @NgModule({

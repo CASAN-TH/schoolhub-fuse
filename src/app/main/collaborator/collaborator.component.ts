@@ -36,36 +36,36 @@ export class CollaboratorComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]]
 
     });
-    console.log(JSON.parse(window.localStorage.getItem("schoolinfo")));
-    this.getList();
+    // console.log(JSON.parse(window.localStorage.getItem("schoolinfo")));
+    // this.getList();
   }
-  onAddCollaborator() {
-    this.collab.create(this.collaborator);
-    this.collab.created.subscribe((res: any) => {
-      if (res.status == 200) {
-        this.getList();
+  // onAddCollaborator() {
+  //   this.collab.create(this.collaborator);
+  //   this.collab.created.subscribe((res: any) => {
+  //     if (res.status == 200) {
+  //       this.getList();
 
-      }
-    })
-  }
-  getList() {
-    this.collab.getlist();
-    this.collab.gettinglist.subscribe((res: any) => {
-      if (res.status == 200) {
-        this.collaborators = res.data;
-      }
-    })
-  }
+  //     }
+  //   })
+  // }
+  // getList() {
+  //   this.collab.getCollaboratorDataList();
+  //   this.collab.gettinglist.subscribe((res: any) => {
+  //     if (res.status == 200) {
+  //       this.collaborators = res.data;
+  //     }
+  //   })
+  // }
 
-  onDelete(_id) {
-    //console.log(_id);
-    this.collab.delete(_id);
-    this.collab.deleted.subscribe((res: any) => {
-      if (res.status == 200) {
-        this.getList();
-      }
-    })
-  }
+  // onDelete(_id) {
+  //   //console.log(_id);
+  //   this.collab.delete(_id);
+  //   this.collab.deleted.subscribe((res: any) => {
+  //     if (res.status == 200) {
+  //       this.getList();
+  //     }
+  //   })
+  // }
 
 
 }

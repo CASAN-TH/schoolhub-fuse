@@ -1,29 +1,27 @@
-<mat-table #table [dataSource]="dataSource">
-    <!-- Email Column -->
+<mat-table #table [dataSource]="collaborators">
+  
     <ng-container matColumnDef="email">
         <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-sm>Email</mat-header-cell>
-        <mat-cell *matCellDef="let contact" fxHide fxShow.gt-sm>
+        <mat-cell *matCellDef="let colaborator" fxHide fxShow.gt-sm>
             <p class="email text-truncate">
-                {{contact.email}}
+                {{colaborator.email}}
             </p>
         </mat-cell>
     </ng-container>
 
-    <!-- Phone Column -->
     <ng-container matColumnDef="schoolid">
         <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-sm>schoolid</mat-header-cell>
-        <mat-cell *matCellDef="let contact" fxHide fxShow.gt-sm>
+        <mat-cell *matCellDef="let colaborator" fxHide fxShow.gt-sm>
             <p class="phone text-truncate">
-                {{contact.schoolid}}
+                {{colaborator.schoolid}}
             </p>
         </mat-cell>
     </ng-container>
 
 
-    <!-- Buttons Column -->
     <ng-container matColumnDef="buttons">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
-        <mat-cell *matCellDef="let contact">
+        <mat-cell *matCellDef="let colaborator">
             <div fxFlex="column" fxLayoutAlign="end center">
 
                 <button mat-icon-button [matMenuTriggerFor]="moreMenu" aria-label="More"
@@ -38,7 +36,7 @@
                                 <mat-icon>link</mat-icon>
                                 <span>CopyLink</span>
                             </button>
-                        <button mat-menu-item aria-label="remove">
+                        <button mat-menu-item aria-label="remove" (click)="onDelete(colaborator._id)">
                             <mat-icon>delete</mat-icon>
                             <span>Cancel</span>
                         </button>
@@ -51,25 +49,10 @@
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let contact; columns: displayedColumns;" class="contact" matRipple>
     </mat-row>
+
+    
+
 </mat-table>
 
 
 
-
-<!-- <div *ngFor="let collaborator of collaborators">
-    <div class="ng">
-        <div class="fontemail">{{collaborator.email}}-{{collaborator.schoolid}}</div>
-    </div>
-    <div class="bt_link">
-        <button mat-raised-button color="accent">link</button>
-        <button mat-raised-button color="warn" (click)="onDelete(collaborator._id)">cancel</button>
-        <div>
-            <mat-menu #moreMenu="matMenu">
-                <button mat-menu-item aria-label="remove" (click)="deleteContact(contact)">
-                    <mat-icon>delete</mat-icon>
-                    <span>Remove</span>
-                </button>
-            </mat-menu>
-        </div>
-    </div>
-</div> -->

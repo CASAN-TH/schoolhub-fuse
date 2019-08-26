@@ -21,6 +21,7 @@ import { SampleModule } from 'app/main/sample/sample.module';
 
 
 const appRoutes: Routes = [
+   
     {
         path        : 'courses',
         loadChildren: './main/courses/courses.module#CoursesModule'
