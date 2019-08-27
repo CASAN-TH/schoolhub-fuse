@@ -17,8 +17,6 @@ export class MainComponent implements OnInit {
   filterBy: string;
 
   constructor(
-    private sch: SchoolService,
-    private route: ActivatedRoute,
     private collaboratorService: CollaboratorService,
     private _formBuilder: FormBuilder) { }
 
