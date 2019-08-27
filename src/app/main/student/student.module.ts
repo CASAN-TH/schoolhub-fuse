@@ -8,19 +8,25 @@ import { FuseConfirmDialogModule, FuseSidebarModule } from '@fuse/components';
 import { MainComponent } from './sidebar/main/main.component';
 import { StudentListComponent } from './student-list/student-list.component';
 import { StudentFormComponent } from './student-form/student-form.component';
+import { StudentService } from './student.service';
+import { AuthenGuardService } from 'app/authentication/authen-guard.service';
 
 const routes: Routes = [
   {
-      path     : '**',
-      component: StudentComponent,
-  }
+    path: '**',
+    component: StudentComponent,
+    canActivate: [AuthenGuardService],
+    resolve: {
+      students: StudentService
+    }
+  },
 ];
 
 @NgModule({
   declarations: [StudentComponent, MainComponent, StudentListComponent, StudentFormComponent],
   imports: [
     RouterModule.forChild(routes),
-    
+
     MatInputModule,
     MatIconModule,
     MatTableModule,
@@ -34,6 +40,6 @@ const routes: Routes = [
     FuseConfirmDialogModule,
     FuseSidebarModule
   ],
-  entryComponents:[StudentComponent, StudentFormComponent]
+  entryComponents: [StudentComponent, StudentFormComponent]
 })
 export class StudentModule { }

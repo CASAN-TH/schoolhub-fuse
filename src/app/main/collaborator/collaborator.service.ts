@@ -13,8 +13,8 @@ export class CollaboratorService {
   onDataChanged: BehaviorSubject<any>;
 
 
-  colaborators: Colaborator[];
-
+  // colaborators: Colaborator[];
+ 
 
   // @Output() gettinglist: EventEmitter<any> = new EventEmitter();
   // @Output() created: EventEmitter<any> = new EventEmitter();
