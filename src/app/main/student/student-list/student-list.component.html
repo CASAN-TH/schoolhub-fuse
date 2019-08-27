@@ -1,27 +1,27 @@
-<mat-table #table [dataSource]="dataSource">
+<mat-table #table [dataSource]="students"> 
 
     <!-- Avatar Column -->
     <ng-container matColumnDef="avatar">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
-        <mat-cell *matCellDef="let contact">
-            <img class="avatar" *ngIf="contact.avatar" [alt]="contact.name" [src]="contact.avatar" />
+        <mat-cell *matCellDef="let student">
+            <img class="avatar" *ngIf="student.avatar" [alt]="student.firstname" [alt]="student.lastname" [src]="student.avatar" />
         </mat-cell>
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="name">
+    <ng-container matColumnDef="firstname">
         <mat-header-cell *matHeaderCellDef>ชื่อนักเรียน</mat-header-cell>
-        <mat-cell *matCellDef="let contact">
-            <p class="text-truncate font-weight-600">{{contact.name}} {{contact.lastName}}</p>
+        <mat-cell *matCellDef="let student">
+            <p class="text-truncate font-weight-600">{{student.firstname}} {{student.lastname}}</p>
         </mat-cell>
     </ng-container>
 
     <!-- StudentId Column -->
-    <ng-container matColumnDef="studentId">
+    <ng-container matColumnDef="studentid">
         <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-sm>รหัสนักเรียน</mat-header-cell>
-        <mat-cell *matCellDef="let contact" fxHide fxShow.gt-sm>
-            <p class="studentId text-truncate">
-                {{contact.studentId}}
+        <mat-cell *matCellDef="let student" fxHide fxShow.gt-sm>
+            <p class="studentid text-truncate">
+                {{student.studentid}}
             </p>
         </mat-cell>
     </ng-container>
@@ -29,9 +29,9 @@
     <!-- Phone Column -->
     <ng-container matColumnDef="phone">
         <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md>เบอร์โทรศัพท์</mat-header-cell>
-        <mat-cell *matCellDef="let contact" fxHide fxShow.gt-md>
+        <mat-cell *matCellDef="let student" fxHide fxShow.gt-md>
             <p class="phone text-truncate">
-                {{contact.phone}}
+                {{student.phone}}
             </p>
         </mat-cell>
     </ng-container>
@@ -39,9 +39,9 @@
     <!-- Job Title Column -->
     <ng-container matColumnDef="jobTitle">
         <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-lg>Job title</mat-header-cell>
-        <mat-cell *matCellDef="let contact" fxHide fxShow.gt-lg>
+        <mat-cell *matCellDef="let student" fxHide fxShow.gt-lg>
             <p class="job-title text-truncate">
-                {{contact.jobTitle}}
+                {{student.jobTitle}}
             </p>
         </mat-cell>
     </ng-container>
@@ -49,9 +49,9 @@
     <!-- Company Column -->
     <ng-container matColumnDef="company">
         <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-lg>Company</mat-header-cell>
-        <mat-cell *matCellDef="let contact" fxHide fxShow.gt-lg>
+        <mat-cell *matCellDef="let student" fxHide fxShow.gt-lg>
             <p class="company text-truncate">
-                {{contact.company}}
+                {{student.company}}
             </p>
         </mat-cell>
     </ng-container>
@@ -59,13 +59,13 @@
     <!-- Buttons Column -->
     <ng-container matColumnDef="buttons">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
-        <mat-cell *matCellDef="let contact">
+        <mat-cell *matCellDef="let student">
             <div fxFlex="row" fxLayoutAlign="end center">
                 <button mat-icon-button aria-label="More" [matMenuTriggerFor]="moreMenu">
                     <mat-icon class="secondary-text">more_vert</mat-icon>
                 </button>
                 <mat-menu #moreMenu="matMenu">
-                    <button mat-menu-item aria-label="remove">
+                    <button mat-menu-item aria-label="remove" (click)="onDelete(student._id)">
                         <mat-icon>delete</mat-icon>
                         <span>Remove</span>
                     </button>
@@ -75,6 +75,9 @@
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let contact; columns: displayedColumns;" class="contact" matRipple>
+    <mat-row *matRowDef="let student; columns: displayedColumns;"
+             class="contact"
+             (click)="editStudent(student)"
+             matRipple>
     </mat-row>
 </mat-table>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StudentService } from '../../student.service';
 
 @Component({
   selector: 'student-main-sidebar',
@@ -8,10 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class MainComponent implements OnInit {
   filterBy: string;
 
-  constructor() { }
+  constructor(private studentService: StudentService) { }
 
   ngOnInit() {
-    this.filterBy = 'all';
+    this.filterBy = this.studentService.filterBy || 'all';
   }
   changeFilter(filter): void
   {
